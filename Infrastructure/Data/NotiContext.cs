@@ -19,6 +19,7 @@ namespace Infrastructure.Data;
         public DbSet<ModulosMaestro> ModulosMaestros { get; set; }
         public DbSet<Submodulo> Submodulos { get; set; }
         public DbSet<RolVsMaestro> RolVsMaestros { get; set; }
+        public DbSet<ModuloNotificacion> ModulosNotifiaciones { get; set; }
         public DbSet<GenericosVsSubmodulo> GenericosVsSubmodulos { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder){
 
