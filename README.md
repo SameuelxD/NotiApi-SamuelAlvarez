@@ -54,7 +54,7 @@ dotnet add package Microsoft.Extensions.DependencyInjection --version 7.0.0
 dotnet add package System.IdentityModel.Tokens.Jwt --version 6.32.3
 dotnet add package Serilog.AspNetCore --version 7.0.0
 dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection --version 12.0.1
-
+dotnet add package AspNetCoreRateLimit --version 5.0.0
 ```
 
 ## Proyecto Infrastructure
