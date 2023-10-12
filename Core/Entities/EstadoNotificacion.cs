@@ -7,6 +7,7 @@ namespace Core.Entities;
         public string NombreEstado { get; set; }
         public DateTime FechaCreacion { get; set; }
         public DateTime FechaModificacion { get; set; }
+        public ICollection<ModuloNotificacion> ModuloNotificaciones { get; set; }
     }
 
 

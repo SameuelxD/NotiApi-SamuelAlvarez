@@ -8,6 +8,7 @@ namespace Core.Entities;
         public int  DescAccion { get; set; }
         public DateTime FechaCreacion { get; set; }
         public DateTime FechaModificacion { get; set; }
+        public ICollection<Blockchain> Blockchains { get; set; }
     }
 
 

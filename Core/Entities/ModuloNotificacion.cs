@@ -12,8 +12,13 @@ namespace Core.Entities;
         public int IdRequerimiento { get; set; }
         [MaxLength(2000)]
         public string TextoNotificacion { get; set;} 
-        public DateTime FechaCreacionNotificacion { get; set;}
-        public DateTime FechaModificacionNotificacion { get; set;}
+        public DateTime FechaCreacion { get; set;}
+        public DateTime FechaModificacion { get; set;}
+        public Radicado Radicados { get; set; }
+        public Formato Formatos { get; set; }
+        public EstadoNotificacion EstadosNotificaciones { get; set; }
+        public TipoRequerimiento TiposRequerimientos { get; set; }
+        public HiloRespuestaNotificacion HiloRespuestasNotificaciones { get; set; }
+        public TipoNotificacion TiposNotificaciones { get; set; }
 
-        
     }
