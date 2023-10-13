@@ -5,5 +5,5 @@ namespace Core.Entities;
     {
         public DateTime FechaCreacion { get; set; }
         public DateTime FechaModificacion { get; set; } 
-        public ICollection<ModuloNotificacion> ModuloNotificaciones { get; set; }
+        public ICollection<ModuloNotificacion> ModulosNotificaciones { get; set; }
     }

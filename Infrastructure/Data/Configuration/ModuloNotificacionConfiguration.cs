@@ -1,17 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Core.Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
 
 namespace Infrastructure.Data.Configuration
 {
-    public class ModuloNotificacionConfiguration : IEntityTypeConfiguration<ModulosNotificacion>
+    public class ModuloNotificacionConfiguration : IEntityTypeConfiguration<ModuloNotificacion>
     {
-        public void Configure(EntityTypeBuilder<ModulosNotificacion> builder)
+        public void Configure(EntityTypeBuilder<ModuloNotificacion> builder)
         {
-            builder.ToTable("ModulosNotificacion"); // Nombre de la Tabla
+            builder.ToTable("ModuloNotificacion"); // Nombre de la Tabla
 
-            builder.HasKey(e => e.Id);
+            builder.HasKey(e => e.Id);      // Llave Principal
             builder.Property(e => e.Id);
             
             builder.Property(p => p.AsuntoNotificacion)

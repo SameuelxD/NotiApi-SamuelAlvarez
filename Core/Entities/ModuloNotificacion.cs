@@ -2,7 +2,6 @@ using System.ComponentModel.DataAnnotations;
 namespace Core.Entities;
     public class ModuloNotificacion : BaseEntity
     {
-        [MaxLength(80)]
         public string AsuntoNotificacion { get; set; }
         public int IdNotificacion { get; set; }
         public int IdRadicado { get; set; }
@@ -10,7 +9,6 @@ namespace Core.Entities;
         public int IdHiloRespuesta { get; set; }
         public int IdFormato { get; set; }
         public int IdRequerimiento { get; set; }
-        [MaxLength(2000)]
         public string TextoNotificacion { get; set;} 
         public DateTime FechaCreacion { get; set;}
         public DateTime FechaModificacion { get; set;}
