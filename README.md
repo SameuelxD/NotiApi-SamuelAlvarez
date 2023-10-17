@@ -63,7 +63,7 @@ dotnet add package AspNetCoreRateLimit --version 5.0.0
 dotnet add package Pomelo.EntityFrameworkCore.MySql --version 7.0.0
 dotnet add package Microsoft.EntityFrameworkCore --version 7.0.10
 dotnet add package CsvHelper --version 30.0.1
-dotnet add package Microsoft.EntityFrameworkCore.Design --version 8.0.0-rc.2.23480.1
+
 
 ```
 ![image](https://drive.google.com/uc?export=view&id=1pst95gYdKZcRnal7iGLq47HFKBkr4lsm)
