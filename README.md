@@ -68,6 +68,82 @@ dotnet add package CsvHelper --version 30.0.1
 ```
 ![image](https://drive.google.com/uc?export=view&id=1pst95gYdKZcRnal7iGLq47HFKBkr4lsm)
 
+# Conexion Base de Datos , Modo Desarrollo API/appsettings.Development.json y Modo Produccion API/appsettings.json
+- Modo Desarrollo { API/appsettings.Development.json }
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "ConnectionStrings": {
+    "MySqlConex": "server=localhost;user=root;password=123456;database=notiapi;"
+  }
+}
+
+- Modo Produccion { API/appsettings.json }
+  {
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+    "MySqlConex": "server=localhost;user=root;password=123456;database=notiapi;"
+  }
+}
+
+# Generar archivo Context Infrastructure/Data/ArchivoContext.cs
+
+using System.Reflection;
+using Core.Entities;
+using Microsoft.EntityFrameworkCore;
+
+namespace Infrastructure.Data;
+    public class NotiContext : DbContext {
+        protected override void OnModelCreating(ModelBuilder modelBuilder){
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        }
+    }
+
+# Inyectar Conexion Base de Datos al Contenedor de Dependencia (Program.cs) API/Program.cs
+
+builder.Services.AddSwaggerGen();
+        -----        -----        -----        -----        -----        -----
+builder.Services.AddDbContext<NotiContext>(options =>
+{
+    string connectionString = builder.Configuration.GetConnectionString("MySqlConex");
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+});
+        -----        -----        -----        -----        -----        -----
+var app = builder.Build();
+ 
+# Generar BaseEntity Core/Entities/BaseEntity.cs y entidades Core/Entities/Entity.cs
+- BaseEntity Core/Entities/BaseEntity.cs
+
+namespace Core.Entities;                
+
+public class BaseEntity        // BaseEntity se usa para que cada Entidad Herede propiedades que se tengan en comun en este caso {                                  para que herden un Id autoincrementable
+
+        public int Id { get; set; }
+}
+
+-Entity Core/Entities/Entity.cs 
+
+namespace Core.Entities;
+
+public class Entity
+{
+        public int Entero { get; set; }
+        public string String { get; set; }
+        public DateTime Fecha { get; set; }
+        public double Double { get; set; }
+}
+    
 # Repositorio generico, Unidad de trabajo
 
 Genere una clase de tipo Interface y nombrela IGenericRepository
